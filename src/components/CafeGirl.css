@@ -1,0 +1,194 @@
+/* ========== Shared ========== */
+.cafe-girl {
+  position: fixed;
+  z-index: 40;
+  pointer-events: none;
+}
+
+/* ========== Running ========== */
+.cafe-girl-run {
+  bottom: 8%;
+  left: -80px;
+  animation: cgRunAcross 5.5s linear forwards;
+}
+
+@keyframes cgRunAcross {
+  0% { transform: translateX(-80px); }
+  100% { transform: translateX(calc(100vw + 80px)); }
+}
+
+.cg-runner {
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+}
+
+.cg-runner-figure {
+  animation: cgBob 0.28s ease-in-out infinite alternate;
+}
+
+@keyframes cgBob {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-3px); }
+}
+
+/* Arm pump */
+.cg-arm-l {
+  animation: cgArmL 0.28s ease-in-out infinite alternate;
+  transform-origin: 33px 32px;
+}
+.cg-arm-r {
+  animation: cgArmR 0.28s ease-in-out infinite alternate;
+  transform-origin: 37px 32px;
+}
+@keyframes cgArmL {
+  0% { transform: rotate(-18deg); }
+  100% { transform: rotate(18deg); }
+}
+@keyframes cgArmR {
+  0% { transform: rotate(18deg); }
+  100% { transform: rotate(-18deg); }
+}
+
+/* Leg stride */
+.cg-leg-l {
+  animation: cgLegL 0.28s ease-in-out infinite alternate;
+  transform-origin: 33px 52px;
+}
+.cg-leg-r {
+  animation: cgLegR 0.28s ease-in-out infinite alternate;
+  transform-origin: 37px 52px;
+}
+@keyframes cgLegL {
+  0% { transform: rotate(-22deg); }
+  100% { transform: rotate(22deg); }
+}
+@keyframes cgLegR {
+  0% { transform: rotate(22deg); }
+  100% { transform: rotate(-22deg); }
+}
+
+/* Speech bubble: appears at ~75% of the 5.5s run = ~4.1s, visible for ~1.2s */
+.cg-speech {
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-8px);
+  opacity: 0;
+  animation: cgSpeechAppear 5.5s linear forwards;
+  white-space: nowrap;
+}
+
+.cg-speech p {
+  background: var(--bg-card);
+  border: 1px solid var(--wine-border);
+  border-radius: 12px;
+  padding: 8px 14px;
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--wine);
+  font-style: italic;
+  box-shadow: var(--shadow-md);
+  white-space: normal;
+  max-width: 200px;
+  line-height: 1.4;
+}
+
+@keyframes cgSpeechAppear {
+  0%, 68% { opacity: 0; transform: translateX(-50%) translateY(-8px) scale(0.8); }
+  72% { opacity: 1; transform: translateX(-50%) translateY(-8px) scale(1); }
+  92% { opacity: 1; transform: translateX(-50%) translateY(-8px) scale(1); }
+  100% { opacity: 0; transform: translateX(-50%) translateY(-8px) scale(0.9); }
+}
+
+/* ========== Jazz ========== */
+.cafe-girl-jazz {
+  bottom: 6%;
+  right: 24px;
+  animation: cgJazzIn 0.8s var(--ease-out) both;
+}
+
+@keyframes cgJazzIn {
+  0% { opacity: 0; transform: translateY(16px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+.cg-jazz {
+  position: relative;
+  animation: cgJazzSway 2s ease-in-out infinite;
+}
+
+@keyframes cgJazzSway {
+  0%, 100% { transform: rotate(-2deg); }
+  50% { transform: rotate(2deg); }
+}
+
+.cg-sway-l {
+  animation: cgSwayL 1s ease-in-out infinite alternate;
+  transform-origin: 33px 34px;
+}
+.cg-sway-r {
+  animation: cgSwayR 1s ease-in-out infinite alternate;
+  transform-origin: 37px 34px;
+}
+@keyframes cgSwayL {
+  0% { transform: rotate(-6deg); }
+  100% { transform: rotate(6deg); }
+}
+@keyframes cgSwayR {
+  0% { transform: rotate(6deg); }
+  100% { transform: rotate(-6deg); }
+}
+
+/* Music notes */
+.cg-notes {
+  position: absolute;
+  top: -8px;
+  right: -16px;
+  width: 40px;
+  height: 40px;
+}
+
+.cg-note {
+  position: absolute;
+  font-size: 13px;
+  color: var(--wine);
+  opacity: 0;
+}
+
+.cg-n1 { top: 0; left: 5px; animation: cgNoteFloat 2.5s ease-out infinite; }
+.cg-n2 { top: 8px; left: 20px; animation: cgNoteFloat 2.5s ease-out 0.7s infinite; }
+.cg-n3 { top: -4px; left: 30px; animation: cgNoteFloat 2.5s ease-out 1.4s infinite; }
+
+@keyframes cgNoteFloat {
+  0% { opacity: 0; transform: translateY(8px) scale(0.6); }
+  20% { opacity: 0.5; }
+  100% { opacity: 0; transform: translateY(-30px) rotate(12deg) scale(1); }
+}
+
+/* ========== Mobile ========== */
+@media (max-width: 480px) {
+  .cafe-girl-run {
+    bottom: 5%;
+  }
+  .cafe-girl-jazz {
+    bottom: 4%;
+    right: 14px;
+  }
+  .cg-jazz svg {
+    width: 36px;
+    height: 52px;
+  }
+  .cg-runner-figure svg {
+    width: 40px;
+    height: 58px;
+  }
+  .cg-speech p {
+    font-size: 10px;
+    max-width: 160px;
+    padding: 6px 10px;
+  }
+  .cg-note {
+    font-size: 11px;
+  }
+}

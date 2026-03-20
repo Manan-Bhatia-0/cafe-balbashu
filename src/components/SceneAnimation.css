@@ -1,0 +1,525 @@
+.anim-stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 0;
+  animation: scaleIn 0.4s var(--ease-spring) both;
+}
+
+.anim-figure svg {
+  overflow: visible;
+}
+
+/* === Punch / Boxing === */
+.anim-punch {
+  animation: punchRight 0.6s var(--ease-spring) infinite alternate;
+}
+@keyframes punchRight {
+  0% { transform: translateX(-20px); opacity: 0.7; }
+  100% { transform: translateX(0); opacity: 1; }
+}
+
+/* === Wobble === */
+.anim-wobble {
+  animation: wobble 0.4s ease-in-out infinite alternate;
+  transform-origin: center bottom;
+}
+@keyframes wobble {
+  0% { transform: rotate(-5deg); }
+  100% { transform: rotate(5deg); }
+}
+
+/* === Impact lines === */
+.anim-impact line {
+  animation: impactFlash 0.5s ease-in-out infinite alternate;
+}
+.anim-impact line:nth-child(2) { animation-delay: 0.1s; }
+.anim-impact line:nth-child(3) { animation-delay: 0.2s; }
+@keyframes impactFlash {
+  0% { opacity: 0.3; transform: translateX(0); }
+  100% { opacity: 1; transform: translateX(-4px); }
+}
+
+/* === Spin slow (whisk swirl) === */
+.anim-spin-slow {
+  animation: spinSlow 2s linear infinite;
+  transform-origin: 100px 120px;
+}
+@keyframes spinSlow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* === Whisk motion === */
+.anim-whisk-motion {
+  animation: whiskMotion 0.5s ease-in-out infinite alternate;
+  transform-origin: 100px 60px;
+}
+@keyframes whiskMotion {
+  0% { transform: rotate(-8deg); }
+  100% { transform: rotate(8deg); }
+}
+
+/* === Float up (sparkles/steam) === */
+.anim-float-up circle, .anim-float-up path {
+  animation: floatUp 2s ease-in-out infinite;
+}
+.anim-float-up circle:nth-child(2), .anim-float-up path:nth-child(2) { animation-delay: 0.5s; }
+.anim-float-up circle:nth-child(3), .anim-float-up path:nth-child(3) { animation-delay: 1s; }
+@keyframes floatUp {
+  0% { opacity: 0.5; transform: translateY(0); }
+  50% { opacity: 0.8; }
+  100% { opacity: 0; transform: translateY(-20px); }
+}
+
+/* === Beret drop === */
+.anim-beret-drop {
+  animation: beretDrop 1s var(--ease-spring) both;
+}
+@keyframes beretDrop {
+  0% { transform: translateY(-40px) rotate(-15deg); opacity: 0; }
+  60% { transform: translateY(5px) rotate(3deg); opacity: 1; }
+  100% { transform: translateY(0) rotate(0deg); opacity: 1; }
+}
+
+/* === Scarf wave === */
+.anim-scarf-wave {
+  animation: scarfWave 2s ease-in-out infinite alternate;
+}
+@keyframes scarfWave {
+  0% { transform: rotate(-3deg); }
+  100% { transform: rotate(3deg); }
+}
+
+/* === Drizzle === */
+.anim-drizzle path {
+  stroke-dashoffset: 30;
+  animation: drizzleFlow 1.5s ease-in-out infinite;
+}
+.anim-drizzle path:nth-child(2) { animation-delay: 0.3s; }
+.anim-drizzle path:nth-child(3) { animation-delay: 0.6s; }
+@keyframes drizzleFlow {
+  0% { stroke-dashoffset: 30; opacity: 0; }
+  30% { opacity: 1; }
+  100% { stroke-dashoffset: 0; opacity: 0.6; }
+}
+
+/* === Pulse soft === */
+.anim-pulse-soft {
+  animation: pulseSoft 2s ease-in-out infinite;
+}
+@keyframes pulseSoft {
+  0%, 100% { opacity: 0.05; r: 25; }
+  50% { opacity: 0.15; r: 30; }
+}
+
+/* === Fall and bounce (ice cubes) === */
+.anim-fall-bounce rect {
+  animation: fallBounce 1.2s var(--ease-spring) both;
+}
+.anim-fall-bounce .ice-2 { animation-delay: 0.2s; }
+.anim-fall-bounce .ice-3 { animation-delay: 0.4s; }
+@keyframes fallBounce {
+  0% { transform: translateY(-60px); opacity: 0; }
+  60% { transform: translateY(50px); opacity: 1; }
+  75% { transform: translateY(42px); }
+  100% { transform: translateY(48px); }
+}
+
+/* === Splash === */
+.anim-splash circle {
+  animation: splash 0.8s ease-out 0.8s both;
+}
+.anim-splash circle:nth-child(2) { animation-delay: 1s; }
+.anim-splash circle:nth-child(3) { animation-delay: 1.2s; }
+@keyframes splash {
+  0% { transform: scale(0); opacity: 0; }
+  50% { transform: scale(1.5); opacity: 1; }
+  100% { transform: scale(1); opacity: 0.6; }
+}
+
+/* === Spread (frosting) === */
+.anim-spread {
+  animation: spreadIn 1s var(--ease-out) both;
+}
+@keyframes spreadIn {
+  0% { transform: scaleX(0.3); opacity: 0; }
+  100% { transform: scaleX(1); opacity: 1; }
+}
+
+/* === Pop in (rosettes) === */
+.anim-pop-in circle {
+  animation: popIn 0.4s var(--ease-spring) both;
+}
+.anim-pop-in circle:nth-child(2) { animation-delay: 0.15s; }
+.anim-pop-in circle:nth-child(3) { animation-delay: 0.3s; }
+@keyframes popIn {
+  0% { transform: scale(0); }
+  100% { transform: scale(1); }
+}
+
+/* === Tremble === */
+.anim-tremble {
+  animation: tremble 0.15s ease-in-out infinite alternate;
+}
+@keyframes tremble {
+  0% { transform: translateX(-1px) rotate(-0.5deg); }
+  100% { transform: translateX(1px) rotate(0.5deg); }
+}
+
+/* === Point === */
+.anim-point {
+  animation: pointJab 0.8s ease-in-out infinite;
+}
+@keyframes pointJab {
+  0%, 100% { transform: translateX(0); }
+  50% { transform: translateX(8px); }
+}
+
+/* === Pop speech === */
+.anim-pop-speech {
+  animation: popSpeech 0.5s var(--ease-spring) 0.3s both;
+}
+@keyframes popSpeech {
+  0% { transform: scale(0); opacity: 0; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+/* === Sweat === */
+.anim-sweat {
+  animation: sweatDrip 1.5s ease-in-out infinite;
+}
+@keyframes sweatDrip {
+  0% { transform: translateY(0); opacity: 0; }
+  30% { opacity: 0.8; }
+  100% { transform: translateY(12px); opacity: 0; }
+}
+
+/* === Peaks rise (whipped cream) === */
+.anim-peaks-rise {
+  animation: peaksRise 0.8s var(--ease-out) both;
+}
+@keyframes peaksRise {
+  0% { transform: scaleY(0); transform-origin: bottom; opacity: 0; }
+  100% { transform: scaleY(1); transform-origin: bottom; opacity: 1; }
+}
+
+/* === Cheese happy bounce === */
+.anim-cheese-happy {
+  animation: happyBounce 1s ease-in-out infinite;
+}
+@keyframes happyBounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
+}
+
+/* === Hearts float === */
+.anim-hearts text {
+  animation: heartFloat 2s ease-in-out infinite;
+  fill: #C4756B;
+}
+.anim-hearts .heart-1 { animation-delay: 0s; }
+.anim-hearts .heart-2 { animation-delay: 0.6s; }
+.anim-hearts .heart-3 { animation-delay: 1.2s; }
+@keyframes heartFloat {
+  0% { opacity: 0; transform: translateY(5px) scale(0.5); }
+  50% { opacity: 1; transform: translateY(-8px) scale(1); }
+  100% { opacity: 0; transform: translateY(-20px) scale(0.8); }
+}
+
+/* === Shred fall === */
+.anim-shred-fall rect {
+  animation: shredFall 1.5s ease-in infinite;
+}
+.anim-shred-fall .shred-2 { animation-delay: 0.2s; }
+.anim-shred-fall .shred-3 { animation-delay: 0.4s; }
+.anim-shred-fall .shred-4 { animation-delay: 0.6s; }
+.anim-shred-fall .shred-5 { animation-delay: 0.8s; }
+@keyframes shredFall {
+  0% { opacity: 0; transform: translateY(-15px) rotate(0deg); }
+  30% { opacity: 1; }
+  100% { opacity: 0.8; transform: translateY(8px) rotate(15deg); }
+}
+
+/* === Crane fold === */
+.anim-crane-fold {
+  animation: craneBob 2s ease-in-out infinite;
+}
+@keyframes craneBob {
+  0%, 100% { transform: translateY(0) rotate(0deg); }
+  25% { transform: translateY(-5px) rotate(2deg); }
+  75% { transform: translateY(-3px) rotate(-2deg); }
+}
+
+/* === Wing flap === */
+.anim-wing-flap {
+  animation: wingFlap 0.6s ease-in-out infinite alternate;
+  transform-origin: 60px 90px;
+}
+@keyframes wingFlap {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(-15deg); }
+}
+
+/* === Dust === */
+.anim-dust circle {
+  animation: dustFloat 3s ease-in-out infinite;
+}
+.anim-dust circle:nth-child(2) { animation-delay: 1s; }
+.anim-dust circle:nth-child(3) { animation-delay: 2s; }
+@keyframes dustFloat {
+  0%, 100% { opacity: 0.3; transform: translateY(0); }
+  50% { opacity: 0.6; transform: translateY(-10px); }
+}
+
+/* === Fold motion (spatula) === */
+.anim-fold-motion {
+  animation: foldMotion 1.5s ease-in-out infinite;
+  transform-origin: 99px 50px;
+}
+@keyframes foldMotion {
+  0%, 100% { transform: rotate(-10deg) translateX(-10px); }
+  50% { transform: rotate(10deg) translateX(10px); }
+}
+
+/* === Merge (flour into batter) === */
+.anim-merge ellipse {
+  animation: mergeIn 2s ease-in-out infinite alternate;
+}
+@keyframes mergeIn {
+  0% { opacity: 0.6; }
+  100% { opacity: 0.2; }
+}
+
+/* === Wrench turn === */
+.anim-wrench-turn {
+  animation: wrenchTurn 1s ease-in-out infinite alternate;
+  transform-origin: 95px 86px;
+}
+@keyframes wrenchTurn {
+  0% { transform: rotate(-10deg); }
+  100% { transform: rotate(10deg); }
+}
+
+/* === Pipe shake === */
+.anim-pipe-shake {
+  animation: tremble 0.2s ease-in-out infinite alternate;
+}
+
+/* === Ooze === */
+.anim-ooze ellipse {
+  animation: oozeGrow 1.5s ease-in-out infinite alternate;
+}
+@keyframes oozeGrow {
+  0% { transform: scale(0.8); opacity: 0.6; }
+  100% { transform: scale(1.2); opacity: 1; }
+}
+
+/* === Bob === */
+.anim-bob {
+  animation: bob 1s ease-in-out infinite;
+}
+@keyframes bob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+
+/* === Pipe squeeze === */
+.anim-pipe-squeeze {
+  animation: squeeze 1s ease-in-out infinite;
+  transform-origin: 100px 45px;
+}
+@keyframes squeeze {
+  0%, 100% { transform: scaleX(1); }
+  50% { transform: scaleX(0.9); }
+}
+
+/* === Rosettes appearing === */
+.anim-rosettes circle {
+  animation: popIn 0.4s var(--ease-spring) both;
+}
+.anim-rosettes .rosette-2 { animation-delay: 0.2s; }
+.anim-rosettes .rosette-3 { animation-delay: 0.4s; }
+.anim-rosettes .rosette-4 { animation-delay: 0.6s; }
+
+/* === Belt move === */
+.anim-belt-move {
+  animation: beltMove 0.5s linear infinite;
+}
+@keyframes beltMove {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-35px); }
+}
+
+/* === Tea run === */
+.anim-tea-run {
+  animation: teaRun 0.4s ease-in-out infinite alternate;
+}
+.anim-tea-run .leg-left {
+  animation: legLeft 0.3s ease-in-out infinite alternate;
+}
+.anim-tea-run .leg-right {
+  animation: legRight 0.3s ease-in-out infinite alternate;
+}
+@keyframes teaRun {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-3px); }
+}
+@keyframes legLeft {
+  0% { transform: rotate(-15deg); }
+  100% { transform: rotate(15deg); }
+}
+@keyframes legRight {
+  0% { transform: rotate(15deg); }
+  100% { transform: rotate(-15deg); }
+}
+
+/* === Steam === */
+.anim-steam path {
+  animation: steamRise 2s ease-in-out infinite;
+}
+.anim-steam path:nth-child(2) { animation-delay: 0.5s; }
+.anim-steam path:nth-child(3) { animation-delay: 1s; }
+@keyframes steamRise {
+  0% { opacity: 0; transform: translateY(5px); }
+  40% { opacity: 0.5; }
+  100% { opacity: 0; transform: translateY(-15px); }
+}
+
+/* === Pour tilt === */
+.anim-pour-tilt {
+  animation: pourTilt 2s ease-in-out infinite alternate;
+  transform-origin: 100px 95px;
+}
+@keyframes pourTilt {
+  0% { transform: rotate(-3deg); }
+  100% { transform: rotate(3deg); }
+}
+
+/* === Tea flow === */
+.anim-tea-flow line {
+  animation: teaFlow 1s ease-in-out infinite;
+  stroke-dasharray: 8 4;
+}
+.anim-tea-flow line:nth-child(2) { animation-delay: 0.2s; }
+.anim-tea-flow line:nth-child(3) { animation-delay: 0.4s; }
+@keyframes teaFlow {
+  0% { stroke-dashoffset: 12; opacity: 0.3; }
+  50% { opacity: 0.8; }
+  100% { stroke-dashoffset: 0; opacity: 0.3; }
+}
+
+/* === Fill up === */
+.anim-fill-up {
+  animation: fillUp 2s ease-in-out infinite alternate;
+}
+@keyframes fillUp {
+  0% { height: 5px; y: 148px; opacity: 0.2; }
+  100% { height: 18px; y: 135px; opacity: 0.4; }
+}
+
+/* === Dip motion === */
+.anim-dip-motion {
+  animation: dipMotion 2s ease-in-out infinite;
+}
+@keyframes dipMotion {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(25px); }
+}
+
+/* === Drip === */
+.anim-drip path {
+  animation: dripDown 1.5s ease-in-out infinite;
+  stroke-dasharray: 20;
+  stroke-dashoffset: 20;
+}
+.anim-drip path:nth-child(2) { animation-delay: 0.5s; }
+@keyframes dripDown {
+  0% { stroke-dashoffset: 20; }
+  100% { stroke-dashoffset: 0; }
+}
+
+/* === Caramelize (color shift) === */
+.anim-caramelize ellipse {
+  animation: caramelize 2s ease-in-out infinite alternate;
+}
+@keyframes caramelize {
+  0% { fill: #E8D5C0; }
+  100% { fill: #B08030; }
+}
+
+/* === Garlic sad === */
+.anim-garlic-sad {
+  animation: sadBob 2s ease-in-out infinite;
+}
+@keyframes sadBob {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(3px); }
+}
+
+/* === Tear === */
+.anim-tear {
+  animation: tearDrop 2s ease-in infinite;
+}
+@keyframes tearDrop {
+  0% { opacity: 0; transform: translateY(0) scale(0.5); }
+  30% { opacity: 0.8; transform: translateY(3px) scale(1); }
+  100% { opacity: 0; transform: translateY(15px) scale(0.3); }
+}
+
+/* === Press down === */
+.anim-press-down {
+  animation: pressDown 1s ease-in-out infinite;
+}
+@keyframes pressDown {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(14px); }
+}
+
+/* === Squeeze out === */
+.anim-squeeze-out circle {
+  animation: squeezeOut 1s ease-in-out 0.5s infinite;
+}
+@keyframes squeezeOut {
+  0% { transform: translateY(0) scale(0); opacity: 0; }
+  50% { transform: translateY(8px) scale(1); opacity: 1; }
+  100% { transform: translateY(16px) scale(0.5); opacity: 0; }
+}
+
+/* === Roll away === */
+.anim-roll-away {
+  animation: rollAway 2s ease-in-out infinite;
+}
+@keyframes rollAway {
+  0% { transform: translate(0, 0) rotate(0deg); opacity: 0.6; }
+  100% { transform: translate(30px, 10px) rotate(180deg); opacity: 0; }
+}
+
+/* === Gentle sway === */
+.anim-sway-gentle {
+  animation: swayGentle 2s ease-in-out infinite alternate;
+}
+@keyframes swayGentle {
+  0% { transform: rotate(-3deg); }
+  100% { transform: rotate(3deg); }
+}
+
+/* === Whip crack === */
+.anim-whip-crack {
+  animation: whipCrack 0.8s ease-in-out infinite;
+  transform-origin: 30px 100px;
+}
+@keyframes whipCrack {
+  0%, 100% { transform: rotate(0deg); }
+  30% { transform: rotate(-15deg); }
+  50% { transform: rotate(5deg); }
+}
+
+/* === Runner bob (reused) === */
+.anim-runnerBob {
+  animation: runnerBob2 0.4s ease-in-out infinite alternate;
+}
+@keyframes runnerBob2 {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-3px); }
+}

@@ -1,0 +1,144 @@
+.awning-frame {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+/* ========== Top awning ========== */
+.awning-top {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 60;
+  display: flex;
+}
+
+/* Each tab = rectangle + optional dome */
+.awning-tab {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.tab-rect {
+  width: 100%;
+  height: 6px;
+  transition: height 0.6s var(--ease-out);
+}
+
+.awning-expanded .tab-rect {
+  height: 18px;
+}
+
+/* Dome: semicircle whose width = stripe width */
+.tab-dome {
+  width: 100%;
+  aspect-ratio: 2 / 1;
+  border-radius: 0 0 50% 50%;
+  animation: fadeIn 0.3s ease 0.4s both;
+}
+
+/* Colors */
+.tab-wine .tab-rect,
+.tab-wine .tab-dome {
+  background: var(--wine);
+  opacity: 0.75;
+}
+
+.tab-cream .tab-rect,
+.tab-cream .tab-dome {
+  background: var(--bg-warm);
+}
+
+/* ========== Bottom ========== */
+.awning-bottom {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 60;
+  display: flex;
+  height: 6px;
+  transition: height 0.6s var(--ease-out);
+}
+
+.awning-expanded .awning-bottom {
+  height: 10px;
+}
+
+.awning-stripe-h {
+  flex: 1;
+  background: var(--wine);
+  opacity: 0.75;
+}
+
+.awning-stripe-h:nth-child(even) {
+  background: var(--bg-warm);
+  opacity: 1;
+}
+
+/* ========== Sides ========== */
+.awning-side {
+  position: fixed;
+  top: 6px;
+  bottom: 6px;
+  width: 6px;
+  z-index: 60;
+  display: flex;
+  flex-direction: column;
+  transition: width 0.6s var(--ease-out), top 0.6s var(--ease-out), bottom 0.6s var(--ease-out);
+}
+
+.awning-expanded .awning-side {
+  width: 10px;
+  top: 18px;
+  bottom: 10px;
+}
+
+.awning-side-left { left: 0; }
+.awning-side-right { right: 0; }
+
+.awning-stripe-v {
+  flex: 1;
+  background: var(--wine);
+  opacity: 0.75;
+}
+
+.awning-stripe-v:nth-child(even) {
+  background: var(--bg-warm);
+  opacity: 1;
+}
+
+/* ========== Inner ========== */
+.awning-inner {
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+/* ========== Mobile ========== */
+@media (max-width: 480px) {
+  .tab-rect {
+    height: 5px;
+  }
+  .awning-expanded .tab-rect {
+    height: 14px;
+  }
+  .awning-bottom {
+    height: 5px;
+  }
+  .awning-expanded .awning-bottom {
+    height: 8px;
+  }
+  .awning-side {
+    width: 5px;
+    top: 5px;
+    bottom: 5px;
+  }
+  .awning-expanded .awning-side {
+    width: 8px;
+    top: 14px;
+    bottom: 8px;
+  }
+}
